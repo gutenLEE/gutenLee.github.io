@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - STUDIO ZVAN</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container projects-container">
+        <div class="top-line"></div>
+        
+        <div class="header">
+            <div class="logo-small">
+                <a href="/">
+                    <img src="/assets/logo.png" alt="STUDIO ZVAN Logo">
+                </a>
+            </div>
+            
+            <nav class="menu">
+                <ul>
+                    <li><a href="/about/">about</a></li>
+                    <li><a href="/projects/" class="active">PROJECT</a></li>
+                    <li><a href="/contact/">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="projects-content">
+            <!-- 세로 슬라이드 (메인 슬라이드) -->
+            <div class="swiper-container vertical-swiper">
+                <div class="swiper-wrapper" id="projects-wrapper">
+                    <!-- 프로젝트 슬라이드는 자바스크립트로 동적 생성됩니다 -->
+                    <div class="swiper-slide loading-slide">
+                        <div class="loading-container">
+                            <p>프로젝트를 불러오는 중...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 세로 슬라이드 컨트롤 -->
+                <div class="swiper-button-next vertical-button-next"></div>
+                <div class="swiper-button-prev vertical-button-prev"></div>
+                <div class="swiper-pagination vertical-pagination"></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="/assets/logo.png" alt="STUDIO ZVAN Logo">
+            </div>
+            <div class="studio-info">
+                <p class="studio-name">STUDIO ZVAN</p>
+                <p class="address">address : 60, Seokchonhosu-ro 12-gil, Songpa-gu, Seoul, Republic of Korea</p>
+                <p class="tel">Tel: 010-7334-0887</p>
+                <p class="copyright">©Copyright 2019 STUDIO ZVAN All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // 프로젝트 데이터를 가져와 슬라이드 생성
+        async function loadProjects() {
+            try {
+                const response = await fetch('/assets/projects.json');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch projects');
+                }
+                
+                const projects = await response.json();
+                const projectsWrapper = document.getElementById('projects-wrapper');
+                
+                // 로딩 슬라이드 제거
+                projectsWrapper.innerHTML = '';
+                
+                // 프로젝트별 슬라이드 생성
+                projects.forEach(project => {
+                    const slideHTML = `
+                        <div class="swiper-slide">
+                            <div class="project-slide">
+                                <div class="project-image">
+                                    <div class="horizontal-swiper-container">
+                                        <div class="swiper-container horizontal-swiper">
+                                            <div class="swiper-wrapper">
+                                                ${project.images.map(image => `
+                                                    <div class="swiper-slide">
+                                                        <img src="${image}" alt="${project.name}">
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                            <div class="swiper-pagination horizontal-pagination"></div>
+                                            <div class="swiper-button-next horizontal-button-next"></div>
+                                            <div class="swiper-button-prev horizontal-button-prev"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <div class="project-title">${project.title}</div>
+                                    <div class="project-subtitle">${project.subtitle}</div>
+                                    <div class="project-description">
+                                        ${project.description.map(desc => `<p>${desc}</p>`).join('')}
+                                    </div>
+                                    <div class="project-name">${project.name}</div>
+                                    <div class="project-details">
+                                        <div class="detail-item">
+                                            <div class="detail-label">Project</div>
+                                            <div class="detail-value">${project.name}</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Area</div>
+                                            <div class="detail-value">${project.area}</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Design / Construction</div>
+                                            <div class="detail-value">${project.design} / ${project.construction}</div>
+                                        </div>
+                                        <div class="detail-item">
+                                            <div class="detail-label">Location</div>
+                                            <div class="detail-value">${project.location}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    projectsWrapper.innerHTML += slideHTML;
+                });
+                
+                // 세로 슬라이더 초기화
+                initSliders();
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                document.querySelector('.loading-container p').textContent = '프로젝트를 불러오는 데 실패했습니다.';
+            }
+        }
+        
+        // 슬라이더 초기화 함수
+        function initSliders() {
+            // 세로 슬라이더 초기화
+            const verticalSwiper = new Swiper('.vertical-swiper', {
+                direction: 'vertical',
+                slidesPerView: 1,
+                spaceBetween: 0,
+                mousewheel: true,
+                pagination: {
+                    el: '.vertical-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.vertical-button-next',
+                    prevEl: '.vertical-button-prev',
+                },
+            });
+            
+            // 가로 슬라이더 초기화 (각 슬라이드마다)
+            const horizontalSwipers = [];
+            document.querySelectorAll('.horizontal-swiper').forEach((element, index) => {
+                const horizontalSwiper = new Swiper(element, {
+                    direction: 'horizontal',
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    pagination: {
+                        el: element.querySelector('.horizontal-pagination'),
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: element.querySelector('.horizontal-button-next'),
+                        prevEl: element.querySelector('.horizontal-button-prev'),
+                    },
+                });
+                horizontalSwipers.push(horizontalSwiper);
+            });
+        }
+        
+        // 페이지 로드 시 프로젝트 데이터 가져오기
+        document.addEventListener('DOMContentLoaded', loadProjects);
+    </script>
+</body>
+</html> 

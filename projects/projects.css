@@ -1,0 +1,318 @@
+/* Projects 페이지 스타일 */
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.projects-container {
+    background: #fff;
+    height: 100vh;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.top-line {
+    display: block;
+    margin: 0;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    z-index: 10;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin-top: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.logo-small {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+}
+
+.logo-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.menu {
+    position: static;
+    margin-right: 50px;
+}
+
+.menu ul {
+    display: flex;
+    gap: 30px;
+}
+
+.menu li a {
+    color: #000;
+}
+
+.menu li a.active {
+    text-decoration: underline;
+}
+
+.projects-content {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.vertical-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.project-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.project-image {
+    flex: 0 0 50%;
+    background-color: #ccc;
+    position: relative;
+}
+
+.horizontal-swiper-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.horizontal-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.horizontal-swiper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info {
+    flex: 0 0 50%;
+    padding: 150px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ccc;
+    color: #fff;
+}
+
+.project-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.project-subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.project-description {
+    margin-bottom: 50px;
+}
+
+.project-description p {
+    margin-bottom: 10px;
+}
+
+.project-name {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.project-details {
+    margin-top: auto;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-weight: bold;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.detail-value {
+    text-align: left;
+    min-width: 200px;
+}
+
+/* 슬라이더 컨트롤 스타일 */
+.swiper-button-next, .swiper-button-prev {
+    color: #fff;
+}
+
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.vertical-pagination {
+    right: 20px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: auto !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-pagination {
+    bottom: 20px !important;
+}
+
+.footer {
+    background-color: #4a4a4a;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.footer-logo {
+    width: 80px;
+    height: 80px;
+    margin-left: 50px;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.studio-info {
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-right: 50px;
+    text-align: right;
+}
+
+.studio-name {
+    margin-bottom: 5px;
+}
+
+.address, .tel {
+    font-size: 10px;
+}
+
+.copyright {
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        overflow: auto;
+    }
+    
+    .projects-container {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .project-slide {
+        flex-direction: column;
+    }
+    
+    .project-image, .project-info {
+        flex: 0 0 100%;
+    }
+    
+    .project-image {
+        height: 300px;
+    }
+    
+    .project-info {
+        padding: 30px 20px;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .detail-label {
+        margin-right: 0;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+    
+    .detail-value {
+        min-width: auto;
+    }
+    
+    .footer {
+        position: static;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .footer-logo {
+        margin: 0 0 20px 0;
+    }
+    
+    .studio-info {
+        margin-right: 0;
+        text-align: center;
+    }
+    
+    .logo-small {
+        margin-left: 20px;
+    }
+    
+    .menu {
+        margin-right: 20px;
+    }
+    
+    .vertical-pagination {
+        display: none;
+    }
+}
+
+/* 로딩 상태 스타일 */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-size: 18px;
+} 

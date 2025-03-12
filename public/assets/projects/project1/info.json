@@ -1,0 +1,14 @@
+{
+  "name": "사진",
+  "title": "위아래파샬로 누르면 다른 프로젝트",
+  "subtitle": "옆에 점 누르면 같은 프로젝트 다른사진",
+  "description": [
+    "사진 순선대로 점 누르면 색깔 진해지게",
+    "사진넘어갈때 스크롤되는 느낌으로 지나가게",
+    "비율 다름 사진은 오른쪽 정렬"
+  ],
+  "area": "100m2/33.3py",
+  "design": "COMPANY 1",
+  "construction": "COMPANY 2",
+  "location": "address"
+} 
