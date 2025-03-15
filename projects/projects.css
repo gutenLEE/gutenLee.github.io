@@ -3,6 +3,7 @@ body {
     height: 100vh;
     overflow: hidden;
     background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .projects-container {
@@ -11,10 +12,14 @@ body {
     padding: 0;
     position: relative;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .top-line {
     display: block;
+    height: 1px;
+    background-color: #000;
     margin: 0;
     position: absolute;
     top: 70px;
@@ -55,10 +60,12 @@ body {
 .menu ul {
     display: flex;
     gap: 30px;
+    list-style: none;
 }
 
 .menu li a {
     color: #000;
+    text-decoration: none;
 }
 
 .menu li a.active {
@@ -69,6 +76,10 @@ body {
     height: 100vh;
     width: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2 / 3;
 }
 
 .vertical-swiper {
@@ -77,21 +88,28 @@ body {
 }
 
 .project-slide {
-    display: flex;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .project-image {
-    flex: 0 0 50%;
-    background-color: #ccc;
-    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d3d3d3;
 }
 
 .horizontal-swiper-container {
     width: 100%;
     height: 100%;
     position: relative;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .horizontal-swiper {
@@ -99,10 +117,22 @@ body {
     height: 100%;
 }
 
-.horizontal-swiper img {
+.horizontal-swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background-color: #d3d3d3;
+}
+
+.horizontal-swiper img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
 }
 
 .project-info {
@@ -110,38 +140,56 @@ body {
     padding: 150px 50px 50px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    background-color: #d3d3d3;
+    color: #000;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     justify-content: center;
-    background-color: #ccc;
-    color: #fff;
+    text-align: center;
 }
 
 .project-title {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: normal;
     margin-bottom: 10px;
+    color: #000;
 }
 
 .project-subtitle {
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #000;
 }
 
 .project-description {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    color: #000;
 }
 
 .project-description p {
     margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 14px;
 }
 
 .project-name {
-    font-size: 36px;
+    font-size: 48px;
     font-weight: bold;
     margin-bottom: 30px;
+    color: #000;
+    margin-top: 20px;
 }
 
 .project-details {
     margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .detail-item {
@@ -154,39 +202,100 @@ body {
     font-weight: bold;
     margin-right: 20px;
     text-align: right;
+    color: #000;
+    font-size: 14px;
 }
 
 .detail-value {
     text-align: left;
     min-width: 200px;
+    color: #000;
+    font-size: 14px;
 }
 
 /* 슬라이더 컨트롤 스타일 */
 .swiper-button-next, .swiper-button-prev {
-    color: #fff;
+    color: #000;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical-button-next {
+    bottom: 20px;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.vertical-button-prev {
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    display: none;
+}
+
+.arrow-icon {
+    width: 15px;
+    height: 15px;
 }
 
 .swiper-pagination-bullet {
-    background: #fff;
+    background: #ccc;
     opacity: 0.5;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
 }
 
 .swiper-pagination-bullet-active {
     opacity: 1;
+    background: #000;
 }
 
 .vertical-pagination {
-    right: 20px !important;
-    left: auto !important;
+    right: auto !important;
+    left: 50% !important;
     top: 50% !important;
-    transform: translateY(-50%) !important;
+    transform: translate(-50%, -50%) !important;
     width: auto !important;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    bottom: auto;
+    z-index: 20;
 }
 
 .horizontal-pagination {
     bottom: 20px !important;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+}
+
+.horizontal-pagination .swiper-pagination-bullet {
+    display: inline-block;
+    margin: 0 5px;
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    border-radius: 50%;
+}
+
+.horizontal-pagination .swiper-pagination-bullet-active {
+    background: #000;
+    opacity: 1;
 }
 
 .footer {
@@ -235,6 +344,15 @@ body {
     margin-top: 5px;
 }
 
+/* 로딩 스타일 */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #000;
+}
+
 /* 반응형 스타일 */
 @media (max-width: 768px) {
     body {
@@ -256,7 +374,12 @@ body {
     }
     
     .project-image {
-        height: 300px;
+        height: 50vh;
+    }
+    
+    .horizontal-swiper-container {
+        width: 250px;
+        height: 500px;
     }
     
     .project-info {
@@ -279,13 +402,13 @@ body {
     }
     
     .footer {
-        position: static;
         flex-direction: column;
         padding: 20px;
     }
     
     .footer-logo {
-        margin: 0 0 20px 0;
+        margin-left: 0;
+        margin-bottom: 10px;
     }
     
     .studio-info {
@@ -304,15 +427,4 @@ body {
     .vertical-pagination {
         display: none;
     }
-}
-
-/* 로딩 상태 스타일 */
-.loading-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    color: #000;
-    font-size: 18px;
 } 

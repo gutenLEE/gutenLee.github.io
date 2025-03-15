@@ -44,8 +44,12 @@
                 </div>
                 
                 <!-- 세로 슬라이드 컨트롤 -->
-                <div class="swiper-button-next vertical-button-next"></div>
-                <div class="swiper-button-prev vertical-button-prev"></div>
+                <div class="swiper-button-next vertical-button-next">
+                    <img src="/assets/down-arrow.svg" alt="Next" class="arrow-icon">
+                </div>
+                <div class="swiper-button-prev vertical-button-prev">
+                    <img src="/assets/up-arrow.svg" alt="Previous" class="arrow-icon">
+                </div>
                 <div class="swiper-pagination vertical-pagination"></div>
             </div>
         </div>
@@ -95,34 +99,6 @@
                                                 `).join('')}
                                             </div>
                                             <div class="swiper-pagination horizontal-pagination"></div>
-                                            <div class="swiper-button-next horizontal-button-next"></div>
-                                            <div class="swiper-button-prev horizontal-button-prev"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="project-info">
-                                    <div class="project-title">${project.title}</div>
-                                    <div class="project-subtitle">${project.subtitle}</div>
-                                    <div class="project-description">
-                                        ${project.description.map(desc => `<p>${desc}</p>`).join('')}
-                                    </div>
-                                    <div class="project-name">${project.name}</div>
-                                    <div class="project-details">
-                                        <div class="detail-item">
-                                            <div class="detail-label">Project</div>
-                                            <div class="detail-value">${project.name}</div>
-                                        </div>
-                                        <div class="detail-item">
-                                            <div class="detail-label">Area</div>
-                                            <div class="detail-value">${project.area}</div>
-                                        </div>
-                                        <div class="detail-item">
-                                            <div class="detail-label">Design / Construction</div>
-                                            <div class="detail-value">${project.design} / ${project.construction}</div>
-                                        </div>
-                                        <div class="detail-item">
-                                            <div class="detail-label">Location</div>
-                                            <div class="detail-value">${project.location}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -152,6 +128,9 @@
                 pagination: {
                     el: '.vertical-pagination',
                     clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '"></span>';
+                    },
                 },
                 navigation: {
                     nextEl: '.vertical-button-next',
@@ -166,14 +145,20 @@
                     direction: 'horizontal',
                     slidesPerView: 1,
                     spaceBetween: 0,
+                    effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    },
+                    speed: 600,
                     pagination: {
                         el: element.querySelector('.horizontal-pagination'),
                         clickable: true,
+                        renderBullet: function (index, className) {
+                            return '<span class="' + className + '"></span>';
+                        },
                     },
-                    navigation: {
-                        nextEl: element.querySelector('.horizontal-button-next'),
-                        prevEl: element.querySelector('.horizontal-button-prev'),
-                    },
+                    autoHeight: false,
+                    centeredSlides: true,
                 });
                 horizontalSwipers.push(horizontalSwiper);
             });
