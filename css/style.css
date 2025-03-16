@@ -250,18 +250,6 @@ main {
     color: #333;
 }
 
-/* 인스타그램 링크에만 스타일 적용 */
-#instagram-link a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-#instagram-link a:hover {
-    color: #999;
-    text-decoration: underline;
-}
-
 /* 우측 로고 스타일 */
 .side-logo {
     position: absolute;
