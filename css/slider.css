@@ -1,0 +1,219 @@
+/* 전체 슬라이더 레이아웃 */
+.project-content {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 세로 네비게이션 화살표 */
+.vertical-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.vertical-nav.top {
+    top: 20px;
+}
+
+.vertical-nav.bottom {
+    bottom: 20px;
+}
+
+.nav-arrow {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-arrow:hover {
+    background-color: #f5f5f5;
+}
+
+/* 전체 슬라이더 레이아웃 - 중앙 정렬을 위해 수정 */
+.project-content {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center; /* 세로 중앙 정렬 추가 */
+  align-items: center; /* 가로 중앙 정렬 추가 */
+}
+
+/* 세로 슬라이더 */
+.slider-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    height: 80%; /* 원래 100vh의 80%로 설정 */
+}
+
+.vertical-slider {
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.project-slide {
+    height: 100%;
+    --width: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.project-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 가로 슬라이더 */
+.horizontal-slider {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: #ccc; /* 이미지 로드 전 배경색 */
+}
+
+.horizontal-slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 가로 슬라이더 네비게이션 - 가로 정렬로 수정 */
+.horizontal-nav {
+    position: absolute;
+    top: 50%; /* 수직 중앙 */
+    right: 0; /* 우측 정렬 */
+    transform: translateY(-50%); /* 정확한 수직 중앙 정렬 */
+    display: flex;
+    flex-direction: row; /* 가로 방향으로 요소 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 10px; /* 점 사이 간격 */
+    z-index: 10; /* 오버레이를 위한 z-index */
+    margin-right: 20px; /* 우측 여백 */
+    padding: 8px 12px; /* 내부 여백 추가 */
+}
+
+/* 점 스타일 유지 */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* display 속성 제거 (필요 없음) */
+}
+
+.dot.active {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 선택적: 네비게이션 점 호버 효과 */
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* 선택적: 컨테이너 배경 (가로 정렬에 맞게 조정) */
+.horizontal-nav:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.horizontal-nav:hover:before {
+    opacity: 1; /* 호버 시 배경 표시 */
+}
+
+/* 프로젝트 정보 영역 */
+.project-info {
+    width: 300px;
+    padding: 30px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.project-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #666;
+}
+
+.detail-value {
+    text-align: right;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .project-slide {
+        flex-direction: column;
+    }
+    
+    .project-info {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .horizontal-slider {
+        height: 60vh;
+    }
+} 
