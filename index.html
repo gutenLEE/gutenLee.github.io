@@ -3,36 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STUDIO ZVAN - Interior Design Studio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>STUDIO ZVAN - 인테리어 디자인 스튜디오</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
-<body>
-    <div class="container">
-        <div class="top-line"></div>
-        
-        <div class="content">
-            <div class="logo-container">
-                <div class="logo-circle">
-                    <img src="/assets/logo.png" alt="STUDIO ZVAN Logo">
-                </div>
+<body class="home-page">
+    <!-- 상단 구분선 -->
+    <div class="divider top-divider"></div>
+    
+    <!-- 메인 콘텐츠 -->
+    <main class="home-content">
+        <!-- 로고 및 네비게이션 영역 -->
+        <div class="home-center">
+            <!-- 로고 영역 -->
+            <div class="home-logo">
+                <img src="assets/logo.png" alt="STUDIO ZVAN">
             </div>
             
-            <nav class="menu">
+            <!-- 네비게이션 메뉴 -->
+            <nav class="home-nav">
                 <ul>
-                    <li><a href="/about/">about</a></li>
-                    <li><a href="/projects/">PROJECT</a></li>
-                    <li><a href="/contact/">CONTACT</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="project.html">PROJECT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
                 </ul>
             </nav>
         </div>
         
-        <div class="bottom-section">
-            <div class="bottom-line"></div>
-            <div class="tagline">INTERIOR DESIGN STUDIO</div>
+        <!-- 하단 타이틀 -->
+        <div class="home-title">
+            <h2>INTERIOR DESIGN STUDIO</h2>
         </div>
-    </div>
+    </main>
+    
+    <!-- 하단 구분선 -->
+    <div class="divider bottom-divider"></div>
+    
+    <script src="js/main.js"></script>
 </body>
-</html>
+</html> 
