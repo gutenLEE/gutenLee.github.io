@@ -30,4 +30,47 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // 푸터 스크롤 동작 제어
+    const footer = document.querySelector('.footer');
+    if (!footer) return; // 푸터가 없으면 실행하지 않음
+    
+    let footerHeight = footer.offsetHeight;
+    let footerTop = footer.offsetTop;
+    let footerVisibilityPoint = footerTop - window.innerHeight + 100; // 푸터 상단 100px 지점
+    
+    // 초기 설정
+    updateFooterPosition();
+    
+    // 스크롤 이벤트 리스너
+    window.addEventListener('scroll', updateFooterPosition);
+    window.addEventListener('resize', function() {
+        // 창 크기 변경 시 값 재계산
+        footerHeight = footer.offsetHeight;
+        footerTop = footer.offsetTop;
+        footerVisibilityPoint = footerTop - window.innerHeight + 100;
+        updateFooterPosition();
+    });
+    
+    // 푸터 위치 업데이트 함수
+    function updateFooterPosition() {
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        
+        // 문서 전체 높이
+        const docHeight = Math.max(
+            document.body.scrollHeight, document.documentElement.scrollHeight,
+            document.body.offsetHeight, document.documentElement.offsetHeight,
+            document.body.clientHeight, document.documentElement.clientHeight
+        );
+        
+        // 스크롤이 푸터 상단 100px 지점에 도달했는지 확인
+        if (scrollPosition >= footerVisibilityPoint) {
+            // 스크롤이 문서 끝에 가까워지면 푸터를 완전히 표시
+            if (scrollPosition + window.innerHeight >= docHeight - footerHeight) {
+                footer.classList.add('show-full');
+            } else {
+                footer.classList.remove('show-full');
+            }
+        }
+    }
 }); 

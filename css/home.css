@@ -5,21 +5,25 @@
     height: 100vh;
     background: linear-gradient(to bottom, #ffffff 50%, #4a4a4a 50%);
     overflow: hidden;
+    align-items: center; /* 자식 요소들을 가로축 중앙에 정렬 */
 }
 
 /* 구분선 스타일 */
 .divider {
-    width: 100%;
+    width: 92.4%;
     height: 1px;
     background-color: #000;
+    z-index: 1000;
+    position: absolute;
 }
 
 .top-divider {
-    margin-top: 60px;
+    top: 6%;
 }
 
 .bottom-divider {
-    margin-bottom: 60px;
+    bottom: 6%;
+    background-color: #ffffff;
 }
 
 /* 메인 콘텐츠 영역 */
@@ -40,8 +44,8 @@
     align-items: center;
     justify-content: center;
     flex: 1;
-    position: relative;
-    margin-top: 39px;
+    position: fixed;
+    top: 32.95%;
 }
 
 /* 로고 스타일 */
@@ -50,7 +54,7 @@
     height: 300px;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,9 +98,10 @@
     color: #999;
 }
 
+
 /* 하단 타이틀 */
 .home-title {
-    margin-bottom: 40px;
+    margin-top: 9px;
     text-align: center;
 }
 
@@ -110,6 +115,7 @@
 
 /* 반응형 스타일 */
 @media (max-width: 768px) {
+    
     .home-logo {
         width: 220px;
         height: 220px;
@@ -120,16 +126,17 @@
         transform: none;
         margin-top: 30px;
     }
-    
-    .bottom-divider {
-        margin-bottom: 30px;
-    }
 }
 
 @media (max-width: 480px) {
+    .home-center {
+        position: fixed;
+        top: 39.0%;
+    }
     .home-logo {
         width: 180px;
         height: 180px;
+        padding-bottom: 10px;
     }
     
     .home-nav ul {
@@ -139,8 +146,10 @@
     .home-content {
         padding: 0 20px;
     }
-    
-    .top-divider {
-        margin-top: 105px;
+
+    .home-title h2{
+        margin-top: 3px;
+        font-size: 11px;
+        text-align: center;
     }
 } 

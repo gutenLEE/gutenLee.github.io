@@ -51,6 +51,7 @@
         right: 30px;
         bottom: 30px;
     }
+
 }
 
 /* 모바일 */
@@ -135,5 +136,13 @@
     /* 모바일에서는 우측 로고 숨김 */
     .side-logo {
         display: none;
+    }
+
+    .about-text {
+        padding-top: 1px;
+    }
+
+    .logo-container {
+        padding-top: 2px;
     }
 } 

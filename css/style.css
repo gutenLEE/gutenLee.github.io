@@ -25,15 +25,24 @@ ul {
 
 main {
   height: 73vh;
+  margin-top: 100px; /* 헤더 높이에 맞게 조정 필요 */
+}
+b {
+    font-size: 1.1em;
 }
 
 /* 헤더 스타일 */
 .header {
     padding: 20px 50px;
-    position: relative;
+    position: fixed; /* 고정 위치로 변경 */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    top: 0; /* 상단에 고정 */
+    left: 0; /* 좌측에 고정 */
+    width: 100%; /* 전체 너비 사용 */
+    background-color: #fff; /* 배경색 추가 (필요시) */
+    z-index: 1000; /* 다른 요소 위에 표시 */
 }
 
 .header-wrapper {
@@ -165,8 +174,9 @@ main {
 .about-text {
     flex: 1;
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.53;
     color: #333;
+    padding-top: 236px;
 }
 
 .about-text p {
@@ -180,6 +190,16 @@ main {
     padding: 15px 50px;
     font-size: 12px;
     width: 100%;
+
+    position: sticky; /* 스티키 포지션 사용 */
+    bottom: 0; /* 하단에 고정 */
+    z-index: 900; /* 다른 요소보다 위에 표시되지만 헤더보다는 아래 */
+    transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+/* 푸터가 완전히 보일 때 적용할 클래스 */
+.footer.show-full {
+    position: relative; /* 일반 문서 흐름으로 돌아감 */
 }
 
 .footer-content {
