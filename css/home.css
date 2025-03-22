@@ -126,9 +126,28 @@
         transform: none;
         margin-top: 30px;
     }
+
+    .home-nav li:nth-child(1) a {
+        color: #ffffff;
+    }
+    
+    .home-nav li:nth-child(2) a,
+    .home-nav li:nth-child(3) a {
+        color: #ffffff;
+    }
 }
 
 @media (max-width: 480px) {
+
+    .home-nav li:nth-child(1) a {
+        color: #ffffff;
+    }
+    
+    .home-nav li:nth-child(2) a,
+    .home-nav li:nth-child(3) a {
+        color: #ffffff;
+    }
+}
     .home-center {
         position: fixed;
         top: 39.0%;
@@ -152,4 +171,5 @@
         font-size: 11px;
         text-align: center;
     }
+
 } 

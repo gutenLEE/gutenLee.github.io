@@ -196,19 +196,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
-    /* 오버레이 설정 */
-    --position: absolute; /* 절대 위치 설정 */
-    --bottom: 0; /* 하단에 배치 */
-    --right: 0; /* 우측에 배치 (필요에 따라 left로 변경 가능) */
-    --z-index: 10; /* 다른 요소보다 위에 표시 */
+    position: relative;
+    z-index: 10;
+    width: 39%;
 }
 
 .project-title {
     margin: 5px 0;
     cursor: pointer; /* 클릭 가능함을 표시하는 커서 */
     transition: color 0.3s, transform 0.2s;
-    position: relative;
 }
 
 .title {
@@ -248,14 +244,17 @@
 
 .detail-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    position: relative;
 }
 
 .detail-label {
     font-weight: bold;
     color: #666;
     text-align: left;
+    position: absolute;
+    left: -10px;
 }
 
 .detail-value {
@@ -293,3 +292,89 @@
 .horizontal-nav .dot, .project-info {
     pointer-events: auto; /* 이벤트 수신 다시 활성화 */
 } 
+
+
+/* 반응형 디자인 - 모바일 버전 */
+@media (max-width: 768px) {
+  /* 슬라이더 컨테이너를 세로 방향으로 변경 */
+  .slider-container {
+      flex-direction: column;
+      height: auto;
+      min-height: 80vh;
+  }
+  
+  /* 프로젝트 타이틀 래퍼 스타일 변경 */
+  .project-title-wrapper {
+      width: 100%; /* 전체 너비 사용 */
+      min-width: auto;
+      order: 1; /* 첫 번째 요소로 배치 */
+      padding: 20px;
+      margin-bottom: 20px;
+      justify-content: center; /* 가운데 정렬 */
+      align-items: center; /* 가운데 정렬 */
+      z-index: 5; /* z-index 유지 */
+  }
+  
+  /* 세로 슬라이더 스타일 변경 */
+  .vertical-slider {
+      width: 100%; /* 전체 너비 사용 */
+      order: 2; /* 두 번째 요소로 배치 */
+      height: 70vh; /* 높이 조정 */
+      margin-left: 0;
+  }
+  
+  /* 프로젝트 슬라이드 조정 */
+  .project-slide {
+      flex-direction: column; /* 내부 요소도 세로 배치 */
+  }
+  
+  /* 프로젝트 정보 영역 조정 */
+  .project-info {
+      width: 100%;
+      padding: 15px;
+      position: relative;
+  }
+  
+  /* 프로젝트 타이틀 스타일 조정 */
+  .project-title {
+      text-align: center;
+      margin: 5px 0;
+  }
+  
+  /* 프로젝트 타이틀 활성화 표시 조정 */
+  .project-title.active::before {
+      left: -15px;
+  }
+  
+  /* 가로 슬라이더 높이 조정 */
+  .horizontal-slider {
+      height: 50vh;
+  }
+  
+  /* 가로 네비게이션 위치 조정 */
+  .horizontal-nav {
+      bottom: 10px;
+      right: 10px;
+  }
+  .project-content{
+    margin-top: 69px;
+  }
+}
+
+/* 더 작은 모바일 화면 대응 */
+@media (max-width: 480px) {
+  .project-content{
+    margin-top: 69px;
+  }
+  .project-title-wrapper {
+      padding: 10px;
+  }
+  
+  .vertical-slider {
+      height: 60vh;
+  }
+  
+  .horizontal-slider {
+      height: 40vh;
+  }
+}

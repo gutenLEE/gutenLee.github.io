@@ -5,6 +5,22 @@
     box-sizing: border-box;
 }
 
+/* 폰트 변수 정의 */
+:root {
+    --main-font: 'Helvetica', 'Arial', sans-serif;
+    --heading-font: 'Helvetica', 'Arial', sans-serif;
+}
+
+/* 전역 폰트 설정 */
+html {
+    font-family: var(--main-font);
+}
+
+/* 제목 요소에 적용 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+}
+
 body {
     font-family: 'Helvetica', 'Arial', sans-serif;
     line-height: 1.6;
