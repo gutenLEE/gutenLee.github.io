@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/cards.css">
 </head>
 <body>
     <!-- 헤더 -->
@@ -37,15 +38,17 @@
     
     <!-- 프로젝트 콘텐츠 -->
     <main class="project-content">
-        
-        <!-- 슬라이더 컨테이너 - 내부 내용은 JS로 생성됨 -->
-        <div class="slider-container">
-            <!-- 세로 슬라이더 - 내부는 비움 -->
+        <!-- 데스크톱용 슬라이더 (기존 코드 유지) -->
+        <div class="slider-container desktop-view">
             <div class="vertical-slider" id="vertical-slider">
                 <!-- JavaScript로 동적 생성 -->
             </div>
         </div>
         
+        <!-- 모바일용 카드 컨테이너 (새로 추가) -->
+        <div class="card-container mobile-view" id="project-cards">
+            <!-- JavaScript로 동적 생성 -->
+        </div>
     </main>
     
     
@@ -64,5 +67,6 @@
     <script src="js/main.js"></script>
     <script src="js/projects-data.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/cards.js"></script>
 </body>
 </html> 
