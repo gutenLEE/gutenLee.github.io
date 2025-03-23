@@ -73,4 +73,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    const homeLogo = document.querySelector('.home-logo');
+    console.log('efef');
+    
+    // 초기 위치 설정
+    adjustLogoPosition();
+    
+    // 창 크기 변경 시 위치 재조정
+    window.addEventListener('resize', adjustLogoPosition);
+    
+    function adjustLogoPosition() {
+        if (!homeLogo) return;
+        
+        // 로고의 현재 높이 가져오기
+        const logoHeight = homeLogo.offsetHeight;
+        
+        // 로고가 정확히 경계선에 걸치도록 위치 조정
+        homeLogo.style.transform = `translate(-50%, -${logoHeight / 2}px)`;
+        
+        console.log('로고 위치 조정:', {
+            logoHeight: logoHeight,
+            transform: homeLogo.style.transform
+        });
+    }
 }); 
