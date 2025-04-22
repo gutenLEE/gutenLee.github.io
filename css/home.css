@@ -100,7 +100,7 @@
 .home-nav {
     position: absolute;
     top: -4%;
-    right: 50px;
+    right: 4%;
     transform: translateY(-50%);
     z-index: 5;
 }
@@ -110,23 +110,25 @@
     gap: 30px;
 }
 
-.home-nav li:nth-child(1) a {
+/* 네비게이션 링크 기본 스타일 */
+.home-nav li a {  /* 더 구체적인 선택자 사용 */
+    font-size: 15px;
     color: #333;
     font-weight: normal;
+}
+
+.home-nav li:nth-child(1) a {
     text-transform: lowercase;
 }
 
 .home-nav li:nth-child(2) a,
 .home-nav li:nth-child(3) a {
-    color: #333;
-    font-weight: normal;
     text-transform: uppercase;
 }
 
 .home-nav li a:hover {
     color: #999;
 }
-
 
 /* 하단 타이틀 */
 .home-title {

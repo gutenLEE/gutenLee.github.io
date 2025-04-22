@@ -5,7 +5,7 @@ const projectsData = [
         details: {
             project: "PROJECT NAME",
             area: "100m2/33.3py",
-            design: "COMPANY 1 / COMPANY 2",
+            design: "COMPANY 1 / COMP",
             location: "address"
         },
         images: [

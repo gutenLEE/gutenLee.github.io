@@ -222,9 +222,6 @@ html {
 }
 
 /* 기존 project-details 스타일은 카드에만 적용됨 */
-.project-details {
-    background-color: #ffffff;
-}
 
 .project-details p {
     color: #555;

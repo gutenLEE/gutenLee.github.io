@@ -1,11 +1,10 @@
 /* 전체 슬라이더 레이아웃 */
 .project-content {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  margin-top: 69px;
 }
 
 /* 세로 네비게이션 화살표 */
@@ -41,42 +40,42 @@
     background-color: #f5f5f5;
 }
 
-/* 전체 슬라이더 레이아웃 - 중앙 정렬을 위해 수정 */
-.project-content {
-  position: relative;
-  height: 80vh;
+/* 프로젝트 타이틀 래퍼 (왼쪽 컬럼) */
+.project-title-wrapper {
+  position: absolute;
+  left: -2%;
+  top: 9%;
+  width: auto;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  justify-content: center; /* 세로 중앙 정렬 추가 */
-  align-items: center; /* 가로 중앙 정렬 추가 */
-  margin-top: 150px; /* 헤더 높이에 맞게 조정 필요 */
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 10;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.project-title {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #222;
+  background: none;
+  box-shadow: none;
 }
 
 /* 세로 슬라이더 */
 .slider-container {
+  position: absolute;
+  left: 58%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  max-width: 90vw;
+  height: 80vh;
   display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  position: relative;
-  width: 90%; /* 전체 너비의 90%로 제한 */
-  max-width: 1400px; /* 최대 너비 설정 */
-  height: 80%; /* 부모 높이의 80% */
-  align-items: stretch;
-  margin: 0 auto; /* 좌우 자동 마진으로 중앙 정렬 */
-}
-
-
-/* 프로젝트 타이틀 래퍼 (왼쪽 컬럼) */
-.project-title-wrapper {
-  width: 10%; /* 왼쪽 컬럼 너비 (필요에 따라 조정) */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* 세로 중앙 정렬 */
-  padding: 0 20px;
-  order: 1; /* Flexbox 순서 - 첫 번째 */
-  position: relative; /* z-index가 작동하도록 position 설정 */
-  z-index: 10; /* 슬라이드보다 높은 z-index 설정 */
+  align-items: center;
+  justify-content: center;
 }
 
 .vertical-slider {
@@ -109,28 +108,32 @@
 
 /* 가로 슬라이더 */
 .horizontal-slider {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    background-color: #ccc; /* 이미지 로드 전 배경색 */
+  position: relative;
+  overflow: hidden;
+  width: 900px;
+  max-width: 90vw;
+  height: 80vh;
+  margin: 0 auto;
+  background: #ccc;
 }
 
 .horizontal-slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease;
-    height: 100%;
+  display: flex;
+  transition: transform 0.5s;
+  height: 100%;
+  width: 100%;
 }
 
 .slide {
-    flex: 0 0 100%;
-    height: 100%;
+  flex: 0 0 100%;
+  height: 100%;
 }
 
 .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* 가로 슬라이더 네비게이션 - 가로 정렬로 수정 */
@@ -198,11 +201,11 @@
     justify-content: flex-end;
     position: relative;
     z-index: 10;
-    width: 39%;
+    width: 55%; /* 기존 39%에서 10% 증가 */
 }
 
 .project-title {
-    margin: 5px 0;
+    margin: 1px 0;
     cursor: pointer; /* 클릭 가능함을 표시하는 커서 */
     transition: color 0.3s, transform 0.2s;
 }
@@ -239,26 +242,31 @@
 .project-details {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
+    margin-left: -5%;
+    font-size: 75%; /* 하위 글자 크기 40% 축소 */
 }
 
 .detail-row {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
+    gap: 16px;
 }
 
 .detail-label {
     font-weight: bold;
     color: #666;
     text-align: left;
-    position: absolute;
-    left: -10px;
+    min-width: 110px;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 
 .detail-value {
     text-align: right;
+    flex: 1;
+    word-break: break-all;
 }
 
 /* 반응형 디자인 */
@@ -356,16 +364,10 @@
       bottom: 10px;
       right: 10px;
   }
-  .project-content{
-    margin-top: 69px;
-  }
 }
 
 /* 더 작은 모바일 화면 대응 */
 @media (max-width: 480px) {
-  .project-content{
-    margin-top: 69px;
-  }
   .project-title-wrapper {
       padding: 10px;
   }
