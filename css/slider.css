@@ -379,4 +379,12 @@
   .horizontal-slider {
       height: 40vh;
   }
+
+  .project-content {
+    margin-top: 12px;
+  }
+
+  .project-details{
+    margin-left: -2%
+  }
 }
