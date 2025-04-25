@@ -1,12 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인테리어 디자인</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    sdsdsdsd
+  <nav class="main-nav" id="main-nav">
+    <ul>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="logo-img-split" id="logo-img-split">
+      <img src="assets/logo.png" alt="로고" class="logo-img top">
+      <img src="assets/logo.png" alt="로고" class="logo-img bottom">
+    </div>
+    <h1 class="main-title"><span class="slide-up">zvan [지:반]</span>: <span class="fade-in">인테리어를 넘어, 삶의 환경을 디자인합니다</span></h1>
+    <div class="scroll-down" id="scroll-down">
+      <!-- 아래로 스크롤 아이콘 (SVG) -->
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="19" cy="19" r="18" stroke="#B0B0B0" stroke-width="3" fill="none"/>
+        <polyline points="13,18 19,25 25,18" fill="none" stroke="#B0B0B0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+  <section class="project" id="project">
+    <h2>Project</h2>
+    <div class="project-list">
+      <div class="project-item">
+        <div class="project-image-wrap">
+          <img src="images/1/1.jpeg" alt="프로젝트 1-1" class="project-image" />
+        </div>
+        <div class="project-desc">
+          <h3>Modern Living Room</h3>
+          <p>심플함과 세련됨이 공존하는 리빙룸. 자연광과 미니멀한 가구 배치로 공간의 여유를 극대화했습니다.</p>
+          <button class="project-detail-btn" data-project="1">상세보기</button>
+        </div>
+      </div>
+      <div class="project-item reverse">
+        <div class="project-image-wrap">
+          <img src="images/2/1.jpeg" alt="프로젝트 2-1" class="project-image" />
+        </div>
+        <div class="project-desc">
+          <h3>Cozy Bedroom</h3>
+          <p>따뜻한 무드와 편안함을 강조한 침실 디자인. 톤다운된 컬러와 조명으로 아늑함을 더했습니다.</p>
+          <button class="project-detail-btn" data-project="2">상세보기</button>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="project-image-wrap">
+          <img src="images/3/1.jpeg" alt="프로젝트 3-1" class="project-image" />
+        </div>
+        <div class="project-desc">
+          <h3>Minimalist Kitchen</h3>
+          <p>깔끔한 라인과 실용성을 겸비한 키친. 화이트와 우드톤의 조화로 모던함을 완성했습니다.</p>
+          <button class="project-detail-btn" data-project="3">상세보기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Project Modal -->
+  <div id="project-modal" class="project-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="닫기">&times;</button>
+      <div class="modal-left">
+        <div class="modal-thumbnails" id="modal-thumbnails"></div>
+      </div>
+      <div class="modal-center">
+        <div class="modal-viewer" id="modal-viewer"></div>
+      </div>
+      <div class="modal-info-col">
+        <div class="modal-info" id="modal-info"></div>
+      </div>
+    </div>
+  </div>
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <h2 class="contact-title">Contact</h2>
+      <div class="contact-map-wrap">
+        <iframe class="contact-map" src="https://www.google.com/maps?q=서울특별시%20송파구%20석촌호수로12길%2060&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="contact-info">
+        <ul>
+          <li><span>주소</span>서울특별시 송파구 석촌호수로12길 60, 잠실동 197-3번지 202호(홍성빌딩)</li>
+          <li><span>이메일</span>example@email.com</li>
+          <li><span>전화</span>010-1234-5678</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>&copy; 2025 zvan. All rights reserved.</span>
+    </div>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>
