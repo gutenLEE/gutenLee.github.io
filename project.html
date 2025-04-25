@@ -59,7 +59,7 @@
               <p class="company-name">STUDIO ZVAN</p>
               <p>address : 60, Seokchonhosu-ro 12-gil, Songpa-gu, Seoul, Republic of Korea</p>
               <p>Tel : 010.7324.5657</p>
-              <p>©Copyright 2019 STUDIO ZVAN All rights reserved.</p>
+              <p> 2019 STUDIO ZVAN All rights reserved.</p>
           </div>
       </div>
     </footer>
@@ -68,5 +68,20 @@
     <script src="js/projects-data.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/cards.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var footer = document.querySelector('.footer');
+  function checkFooter() {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+      footer.classList.add('show-full');
+    } else {
+      footer.classList.remove('show-full');
+    }
+  }
+  window.addEventListener('scroll', checkFooter);
+  window.addEventListener('resize', checkFooter);
+  checkFooter();
+});
+</script>
 </body>
-</html> 
+</html>

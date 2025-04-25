@@ -300,3 +300,19 @@ b {
     width: 100%;
     height: auto;
 }
+
+@media (max-width: 480px) {
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 50px;
+    overflow: hidden;
+    transition: height 0.3s;
+    z-index: 1000;
+  }
+  .footer.show-full {
+    height: 110px;
+  }
+}
