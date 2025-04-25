@@ -143,8 +143,8 @@ b {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    width: 23px;
+    height: 15.9px;
     cursor: pointer;
     position: absolute;
     right: 50px;
@@ -299,4 +299,4 @@ b {
 .side-logo img {
     width: 100%;
     height: auto;
-} 
+}
