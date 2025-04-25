@@ -387,4 +387,22 @@
   .project-details{
     margin-left: -2%
   }
+
+  .gallery-item,
+  .card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 65vw;
+    min-height: 140px;
+    margin-bottom: 12px;
+  }
+  .gallery-item img,
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
 }
