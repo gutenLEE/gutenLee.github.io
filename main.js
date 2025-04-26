@@ -44,7 +44,7 @@ function handleProjectItemsFadeIn() {
 
 // 프로젝트 상세 모달 관련
 const projectImages = {
-  1: ['images/1/1.jpeg', 'images/1/2.jpeg'],
+  1: ['images/1/1.jpeg', 'images/1/2.jpeg', 'images/1/2.jpeg', 'images/1/2.jpeg', 'images/1/2.jpeg'],
   2: ['images/2/1.jpeg', 'images/2/2.jpeg'],
   3: ['images/3/1.jpeg', 'images/3/2.jpeg']
 };
