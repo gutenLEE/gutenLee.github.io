@@ -48,18 +48,18 @@ body {
 }
 .logo-img.top {
   z-index: 2;
-  clip-path: inset(0 0 60px 0); /* 위쪽 절반만 보이게 */
+  clip-path: inset(0 0 46% 0); /* 위쪽 55%만 보이게 */
 }
 .logo-img.bottom {
   z-index: 1;
-  clip-path: inset(60px 0 0 0); /* 아래쪽 절반만 보이게 */
+  clip-path: inset(55% 0 0 0); /* 아래쪽 45%만 보이게 */
 }
 .logo-img-split.split .logo-img.top {
-  transform: translateY(-60px);
+  transform: translateY(-46%);
   opacity: 0.7;
 }
 .logo-img-split.split .logo-img.bottom {
-  transform: translateY(60px);
+  transform: translateY(55%);
   opacity: 0.7;
 }
 
@@ -450,7 +450,7 @@ body {
 }
 .modal-info {
   position: absolute;
-  right: 34px;
+  right: 35px;
   bottom: 16%;
   margin: 0;
   align-self: flex-end;
@@ -466,8 +466,8 @@ body {
   gap: 0.7em;
   pointer-events: auto;
   transition: box-shadow 0.18s;
-  min-width: 220px;
-  max-width: 320px;
+  min-width: 279px;
+  max-width: 406px;
 }
 @media (max-width: 1200px) {
   .modal-content {
@@ -645,7 +645,7 @@ body {
   font-weight: 600;
   color: #666;
   text-align: left;
-  padding-right: 0.8em;
+  padding-right: 0.84em;
   white-space: nowrap;
 }
 .modal-info-value {
