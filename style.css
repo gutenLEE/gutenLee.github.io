@@ -653,6 +653,7 @@ body {
   color: #222;
   text-align: right;
   word-break: keep-all;
+  line-height: 1.5;
 }
 
 .contact {
